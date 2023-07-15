@@ -46,24 +46,33 @@ and arr[1] + arr[3] = 5 + 1 = 6.
 function countPairsWithGivenSum(arr, k) {
     let count = 0;
     let obj = {}
+    console.log(arr);
     for (let i = 0; i < arr.length; i++) {
         let pending = k - arr[i];
+        console.log('pending = ',pending,'k = ',k,'arr[',i,']',arr[i]);
         if (pending in obj) {
+            console.log('true : ',arr[i],'count:',count,'obj[pending]',obj[pending]);
             count += obj[pending];
+            console.log(count);
         }
         if (arr[i] in obj) {
+            console.log('true : ',arr[i],'count',count);
             obj[arr[i]]++;
         } else {
+            console.log('true : ',arr[i],'count',count);
             obj[arr[i]] = 1;
         }
+        console.log(obj,'count : ',count);
     }
     console.log(obj, count);
     // return count;
 }
-console.log(countPairsWithGivenSum([1, 2, 3, 1, 5, 7, 4, 1, 2, -1], 6));
+// console.log(countPairsWithGivenSum([1, 2, 3, 1, 5, 7, 4, 1, 2, -1], 6));
+
+
 
 // console.log(countPairsWithGivenSum([1, 2, 3, 5, 7, 4, 1], 6));
-// console.log(countPairsWithGivenSum([1, 1, 1, 1], 2));
+console.log(countPairsWithGivenSum([1, 1, 1, 1], 2));
 // console.log(countPairsWithGivenSum([1, 5, 7, 1], 6));
 
 /*
