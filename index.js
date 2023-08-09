@@ -49,20 +49,20 @@ function countPairsWithGivenSum(arr, k) {
     console.log(arr);
     for (let i = 0; i < arr.length; i++) {
         let pending = k - arr[i];
-        console.log('pending = ',pending,'k = ',k,'arr[',i,']',arr[i]);
+        console.log('pending = ', pending, 'k = ', k, 'arr[', i, ']', arr[i]);
         if (pending in obj) {
-            console.log('true : ',arr[i],'count:',count,'obj[pending]',obj[pending]);
+            console.log('true : ', arr[i], 'count:', count, 'obj[pending]', obj[pending]);
             count += obj[pending];
             console.log(count);
         }
         if (arr[i] in obj) {
-            console.log('true : ',arr[i],'count',count);
+            console.log('true : ', arr[i], 'count', count);
             obj[arr[i]]++;
         } else {
-            console.log('true : ',arr[i],'count',count);
+            console.log('true : ', arr[i], 'count', count);
             obj[arr[i]] = 1;
         }
-        console.log(obj,'count : ',count);
+        console.log(obj, 'count : ', count);
     }
     console.log(obj, count);
     // return count;
@@ -125,3 +125,29 @@ const capitalName = newName.toUpperCase();
 
 console.log(capitalName);
 */
+
+
+function censor(str) {
+    let str1 = str.split(" ");
+    let result = "";
+    for (let i = 0; i < str1.length; i++) {
+        let length = false;
+        if (str1[i].length >= 5) {
+            length = true;
+        }
+        for (let j = 0; j < str1[i].length; j++) {
+            if (length) {
+                result += "*";
+            } else {
+                result += str1[i][j];
+            }
+        }
+        if (i < str1.length - 1) {
+            result += " ";
+        }
+    }
+    return result;
+}
+
+console.log(censor("My Name is anwar moazam"));
+
