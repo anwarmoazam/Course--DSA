@@ -72,7 +72,7 @@ function countPairsWithGivenSum(arr, k) {
 
 
 // console.log(countPairsWithGivenSum([1, 2, 3, 5, 7, 4, 1], 6));
-console.log(countPairsWithGivenSum([1, 1, 1, 1], 2));
+// console.log(countPairsWithGivenSum([1, 1, 1, 1], 2));
 // console.log(countPairsWithGivenSum([1, 5, 7, 1], 6));
 
 /*
@@ -149,7 +149,7 @@ function censor(str) {
     return result;
 }
 
-console.log(censor("My Name is anwar moazam"));
+// console.log(censor("My Name is anwar moazam"));
 
 
 /*
@@ -200,5 +200,21 @@ var maxArea = function (arr){
     return {...maxHeight,...secondMaxHeight};
 }
 
-console.log(maxArea([100,2,5,2,3,101,1,88]));
+// console.log(maxArea([100,2,5,2,3,101,1,88]));
 
+// Data Structure Maths -- Count digits in a number
+function countDigits(num){
+    let temp = num;
+    let count = 0;
+    while(num > 0){
+        let lastDigit = num%10;
+        num = parseInt(num/10);
+        count = count + 1;
+    }
+    return `Digits in ${temp} is ${count}`;
+}
+
+console.log(countDigits(12345));
+console.log(countDigits(558585));
+console.log(countDigits(10000));
+console.log(countDigits(100));
