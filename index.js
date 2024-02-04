@@ -44,32 +44,37 @@ and arr[1] + arr[3] = 5 + 1 = 6.
 // }
 
 function countPairsWithGivenSum(arr, k) {
-    let count = 0;
-    let obj = {}
-    console.log(arr);
-    for (let i = 0; i < arr.length; i++) {
-        let pending = k - arr[i];
-        console.log('pending = ', pending, 'k = ', k, 'arr[', i, ']', arr[i]);
-        if (pending in obj) {
-            console.log('true : ', arr[i], 'count:', count, 'obj[pending]', obj[pending]);
-            count += obj[pending];
-            console.log(count);
-        }
-        if (arr[i] in obj) {
-            console.log('true : ', arr[i], 'count', count);
-            obj[arr[i]]++;
-        } else {
-            console.log('true : ', arr[i], 'count', count);
-            obj[arr[i]] = 1;
-        }
-        console.log(obj, 'count : ', count);
+  let count = 0;
+  let obj = {};
+  console.log(arr);
+  for (let i = 0; i < arr.length; i++) {
+    let pending = k - arr[i];
+    console.log("pending = ", pending, "k = ", k, "arr[", i, "]", arr[i]);
+    if (pending in obj) {
+      console.log(
+        "true : ",
+        arr[i],
+        "count:",
+        count,
+        "obj[pending]",
+        obj[pending]
+      );
+      count += obj[pending];
+      console.log(count);
     }
-    console.log(obj, count);
-    // return count;
+    if (arr[i] in obj) {
+      console.log("true : ", arr[i], "count", count);
+      obj[arr[i]]++;
+    } else {
+      console.log("true : ", arr[i], "count", count);
+      obj[arr[i]] = 1;
+    }
+    console.log(obj, "count : ", count);
+  }
+  console.log(obj, count);
+  // return count;
 }
 // console.log(countPairsWithGivenSum([1, 2, 3, 1, 5, 7, 4, 1, 2, -1], 6));
-
-
 
 // console.log(countPairsWithGivenSum([1, 2, 3, 5, 7, 4, 1], 6));
 // console.log(countPairsWithGivenSum([1, 1, 1, 1], 2));
@@ -126,31 +131,29 @@ const capitalName = newName.toUpperCase();
 console.log(capitalName);
 */
 
-
 function censor(str) {
-    let str1 = str.split(" ");
-    let result = "";
-    for (let i = 0; i < str1.length; i++) {
-        let length = false;
-        if (str1[i].length >= 5) {
-            length = true;
-        }
-        for (let j = 0; j < str1[i].length; j++) {
-            if (length) {
-                result += "*";
-            } else {
-                result += str1[i][j];
-            }
-        }
-        if (i < str1.length - 1) {
-            result += " ";
-        }
+  let str1 = str.split(" ");
+  let result = "";
+  for (let i = 0; i < str1.length; i++) {
+    let length = false;
+    if (str1[i].length >= 5) {
+      length = true;
     }
-    return result;
+    for (let j = 0; j < str1[i].length; j++) {
+      if (length) {
+        result += "*";
+      } else {
+        result += str1[i][j];
+      }
+    }
+    if (i < str1.length - 1) {
+      result += " ";
+    }
+  }
+  return result;
 }
 
 // console.log(censor("My Name is anwar moazam"));
-
 
 /*
 You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
@@ -175,46 +178,81 @@ Input: height = [1,1]
 Output: 1
 */
 
-var maxArea = function (arr){
-    let maxHeight = {};
-    let secondMaxHeight = {};
-    let firstMax = arr[0];
-    let secondMax = -Infinity;
-    for(let i=0; i<arr.length; i++){
-        if(arr[i] >= firstMax){
-            firstMax = arr[i];
-            console.log('First Max : ',firstMax);
-            maxHeight = {}
-            maxHeight[i] = firstMax;
-        }
+var maxArea = function (arr) {
+  let maxHeight = {};
+  let secondMaxHeight = {};
+  let firstMax = arr[0];
+  let secondMax = -Infinity;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] >= firstMax) {
+      firstMax = arr[i];
+      console.log("First Max : ", firstMax);
+      maxHeight = {};
+      maxHeight[i] = firstMax;
     }
-    for(let i=0; i<arr.length; i++){
-        if(arr[i] > secondMax && arr[i] < firstMax){
-            secondMax = arr[i];
-            console.log('Second Max : ',secondMax);
-            secondMaxHeight = {};
-            secondMaxHeight[i] = secondMax;
-        }
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > secondMax && arr[i] < firstMax) {
+      secondMax = arr[i];
+      console.log("Second Max : ", secondMax);
+      secondMaxHeight = {};
+      secondMaxHeight[i] = secondMax;
     }
-    console.log(maxHeight,secondMaxHeight);
-    return {...maxHeight,...secondMaxHeight};
-}
+  }
+  console.log(maxHeight, secondMaxHeight);
+  return { ...maxHeight, ...secondMaxHeight };
+};
 
 // console.log(maxArea([100,2,5,2,3,101,1,88]));
 
 // Data Structure Maths -- Count digits in a number
-function countDigits(num){
-    let temp = num;
-    let count = 0;
-    while(num > 0){
-        let lastDigit = num%10;
-        num = parseInt(num/10);
-        count = count + 1;
-    }
-    return `Digits in ${temp} is ${count}`;
+function countDigits(num) {
+  let temp = num;
+  let count = 0;
+  while (num > 0) {
+    let lastDigit = num % 10;
+    num = parseInt(num / 10);
+    count = count + 1;
+  }
+  return `Digits in ${temp} is ${count}`;
 }
 
 console.log(countDigits(12345));
 console.log(countDigits(558585));
 console.log(countDigits(10000));
 console.log(countDigits(100));
+
+// Reverse a number
+function reverseNumber(num) {
+  let temp = num;
+  let reverseNum = 0;
+  while (temp > 0) {
+    let lastDigit = temp % 10;
+    temp = parseInt(temp / 10);
+    reverseNum = reverseNum * 10 + lastDigit;
+  }
+  return `Reverse Number of ${num} is ${reverseNum}`;
+}
+
+console.log(reverseNumber(1));
+console.log(reverseNumber(12));
+console.log(reverseNumber(123));
+console.log(reverseNumber(12345));
+console.log(reverseNumber(678910));
+console.log(reverseNumber(1112314));
+
+// Check if a number is Palindrome or Not
+function isPalindrome(num) {
+  let temp = num;
+  let reverseNum = 0;
+  while (temp > 0) {
+    let lastDigit = temp % 10;
+    temp = parseInt(temp / 10);
+    reverseNum = reverseNum * 10 + lastDigit;
+  }
+  return (reverseNum === num) ? `${num} is a Palindrome Number` : `${num} is not a Palindrome Number`
+}
+
+console.log(isPalindrome(121));
+console.log(isPalindrome(1234));
+console.log(isPalindrome(11411));
